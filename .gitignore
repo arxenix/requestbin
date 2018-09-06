@@ -7,3 +7,7 @@ codekit-config.json
 
 # Mac Files
 **/.DS_Store
+
+
+*.iml
+.idea/
