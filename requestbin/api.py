@@ -5,14 +5,9 @@ from flask import session, make_response, request, render_template
 from requestbin import app, db
 
 def _response(object, code=200):
-    jsonp = request.args.get('jsonp')
-    if jsonp:
-        resp = make_response('%s(%s)' % (jsonp, json.dumps(object)), 200)
-        resp.headers['Content-Type'] = 'text/javascript'
-    else:
-        resp = make_response(json.dumps(object), code)
-        resp.headers['Content-Type'] = 'application/json'
-        resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp = make_response(json.dumps(object), code)
+    resp.headers['Content-Type'] = 'application/json'
+    resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
 
